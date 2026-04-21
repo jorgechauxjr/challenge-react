@@ -9,9 +9,10 @@ const List: React.FC = () => {
 
   const handleChange = async (event: any) => {
     try {
-      setFilterText(event.target.value);
+      const value = event.target.value;
+      setFilterText(value);
 
-      const response = await fetch(`https://api.disneyapi.dev/character?name=${filterText}`);
+      const response = await fetch(`https://api.disneyapi.dev/character?name=${value}`);
       if (!response.ok) {
         throw new Error(`Error HTTP: ${response.status}`);
       }
